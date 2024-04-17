@@ -1,3 +1,12 @@
+Vue.component('error-popup', {
+    props: ['message', 'visible'],
+    template: `
+        <div v-if="visible" class="error-popup">
+            {{ message }}
+        </div>
+    `
+});
+
 new Vue({
     el: '#app',
     data: {
@@ -14,9 +23,11 @@ new Vue({
         ],
         selectedServices: [],
         errorMessage: '', // 用于显示错误消息
-        showErrorAnimation: false,
+        errorVisible: false,
         dataUrl : '',
         plans: [],
+        filter: {},
+        availablePlans: [],
         planDetails: {},
     },
 
@@ -45,67 +56,74 @@ new Vue({
                 }
             });
         },
-        ZipToState: function() {
-            const zip = this.zipCode;
-            fetch(`https://api.zippopotam.us/us/${zip}`)
+        showError() {
+            this.errorVisible = true;
+            setTimeout(() => {
+                this.errorVisible = false;
+            }, 5000);
+
+        },
+        ZipToState(callback) {
+            fetch(`https://api.zippopotam.us/us/${this.zipCode}`)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Request failed');
-                    }
+                    if (!response.ok) throw new Error('Invalid Zip Code');
                     return response.json();
                 })
                 .then(data => {
-                    if (data && data['places'] && data['places'].length > 0) {
-                        this.state = data['places'][0]['state abbreviation'];
-                        this.errorMessage = ''; // Clear any previous error messages
+                    if (data && data.places && data.places.length > 0) {
+                        this.state = data.places[0]['state abbreviation'];
+
+                        // 检查状态是否有对应的计划
+                        return fetch(this.dataUrl + 'plan_filter.json')
+                            .then(response => response.json())
+                            .then(filterData => {
+                                const filter = filterData.find(item => item.State === this.state);
+                                if (!filter || !filter.Plans) {
+                                    throw new Error('No Plans Available');
+                                }
+                                this.availablePlans = filter.Plans.split(', ').map(plan => plan.trim());
+                                this.filter = filter;
+                            });
                     } else {
-                        throw new Error('No data found');
+                        throw new Error('Invalid Zip Code');
                     }
                 })
+                .then(() => {
+                    // 状态验证通过且有对应计划，执行回调
+                    callback();
+                })
                 .catch(error => {
-                    console.error('Error:', error);
-                    this.errorMessage = 'Zip Code Invalid';
-                    this.state = '';
+                    this.errorMessage = error.message;
+                    this.showError();
                 });
         },
         isAdult: function() {
-            const birthday = new Date(this.birthday); // 将生日字符串转换为日期对象
-            const today = new Date(); // 获取当前日期
-            const age = today.getFullYear() - birthday.getFullYear(); // 计算两个日期的年份差
-            const m = today.getMonth() - birthday.getMonth(); // 计算月份差
+            const birthday = new Date(this.birthday);
+            const today = new Date();
+            const age = today.getFullYear() - birthday.getFullYear();
+            const m = today.getMonth() - birthday.getMonth();
 
             if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
-                // 如果当前月份小于生日月份，或者月份相同但今天的日期小于生日日期，则年龄-1
                 return age - 1 >= 18;
             } else {
-                // 否则直接判断年龄
                 return age >= 18;
             }
         },
         goToNextStep(stepChange) {
-            // 前置条件检查
-            console.log(this.isAdult());
-            if (!this.zipCode || !this.birthday) {
-                this.errorMessage = "所有字段都需要填写。";
-                this.showErrorAnimation = true;
-                setTimeout(() => {
-                    this.showErrorAnimation = false;
-                }, 500);
-
-                return;
-            }else if (this.zipCode.length != 5) {
-                this.errorMessage = "请输入正确的Zip Code";
-                this.showErrorAnimation = true;
-                setTimeout(() => {
-                    this.showErrorAnimation = false;
-                }, 500);
-
-                return;
+            if (stepChange === 1) {
+                this.ZipToState(() => {
+                    if (!this.isAdult()) {
+                        this.errorMessage = "The Insured has to be an Adult to enroll";
+                        this.showError();
+                    } else {
+                        this.currentStep += stepChange;
+                        this.errorMessage = '';
+                    }
+                });
+            } else {
+                this.currentStep += stepChange;
+                this.errorMessage = '';
             }
-
-            const newStep = this.currentStep + stepChange;
-            this.currentStep = newStep;
-            this.errorMessage = '';
         },
         applyTranslation() {
             const wrapper = this.$el.querySelector('.steps-wrapper');
@@ -148,70 +166,32 @@ new Vue({
             return `${month.toString().padStart(2, '0')}/${date.toString().padStart(2, '0')}/${year}`;
         },
         fetchPlans: function() {
-            // 通过API获取zipcode对应的州
-            fetch(`https://api.zippopotam.us/us/${this.zipCode}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Zip Code Invalid');
-                    }
-                    return response.json();
-                })
-                .then(zipData => {
-                    const stateAbbreviation = zipData['places'][0]['state abbreviation']; // 假设API返回的数据中州的缩写为state字段
-                    // 获取过滤规则
-                    fetch(this.dataUrl + 'plan_filter.json')
-                        .then(response => response.json())
-                        .then(filterData => {
-                            // 根据州找到对应的过滤规则
-                            const filter = filterData.find(item => item.State === stateAbbreviation);
-                            if (!filter) {
-                                this.errorMessage = 'Invalid Zip Code';
-                                return; // 中止进一步执行
-                            }
-                            if (!filter.Plans) {
-                                this.errorMessage = 'No Plans Available';
-                                return; // 中止进一步执行
-                            }
-                            // 解析 Plans 数据，准备进行计划获取和排序
-                            const availablePlans = filter.Plans.split(', ').map(plan => plan.trim());
-                            // 获取计划数据
-                            fetch(this.dataUrl + 'plan_data.json')
-                                .then(response => response.json())
-                                .then(data => {
-                                    // 筛选出对应的计划
-                                    let plans = availablePlans.map(planId =>
-                                        data.find(plan => plan.ID === planId)).filter(plan => plan !== undefined);
+            fetch(this.dataUrl + 'plan_data.json')
+                .then(response => response.json())
+                .then(data => {
+                    // 筛选出对应的计划
+                    let plans = this.availablePlans.map(planId =>
+                        data.find(plan => plan.ID === planId)).filter(plan => plan !== undefined);
 
-                                    // 根据 selectedServices 调整顺序
-                                    if (this.selectedServices.includes(3)) {
-                                        plans = this.reorderPlans(plans, filter.D3_Selected_Highlight);
-                                    } else if (this.selectedServices.includes(2)) {
-                                        plans = this.reorderPlans(plans, filter.D2_Selected_Highlight);
-                                    } else {
-                                        plans = this.reorderPlans(plans, filter.D1_Selected_Highlight);
-                                    }
-                                    // 设置处理完的数据
-                                    this.plans = plans;
-                                    this.currentStep = 3;
-                                    this.errorMessage = '';
-                                })
-                                .catch(error => {
-                                    console.error('Error loading the plan data:', error);
-                                    this.errorMessage = 'Failed to load data, please try again later.';
-                                });
-                        })
-                        .catch(error => {
-                            console.error('Error loading the filter data:', error);
-                            this.errorMessage = 'Failed to load filter data, please try again later.';
-                        });
+                    // 根据 selectedServices 调整顺序
+                    if (this.selectedServices.includes(3)) {
+                        plans = this.reorderPlans(plans, this.filter.D3_Selected_Highlight);
+                    } else if (this.selectedServices.includes(2)) {
+                        plans = this.reorderPlans(plans, this.filter.D2_Selected_Highlight);
+                    } else {
+                        plans = this.reorderPlans(plans, this.filter.D1_Selected_Highlight);
+                    }
+                    // 设置处理完的数据
+                    this.plans = plans;
+                    this.currentStep = 3;
+                    this.errorMessage = '';
                 })
                 .catch(error => {
-                    console.error('Error fetching state data:', error);
-                    this.errorMessage = error.message;
+                    console.error('Error loading the plan data:', error);
+                    this.errorMessage = 'Failed to load data, please try again later.';
                 });
-            console.log(this.errorMessage);
-        },
 
+        },
         // 辅助函数：根据给定的 highlight 对计划数组重新排序
         reorderPlans: function(plans, highlightPlan) {
             if (!highlightPlan) return plans; // 如果没有特别的 highlight 计划，返回原数组
@@ -245,3 +225,4 @@ new Vue({
         }
     },
 });
+

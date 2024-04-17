@@ -15,7 +15,6 @@ defined('ABSPATH') || exit;
 
 define('SM_DENTAL_INSURANCE_DIR', plugin_dir_path(__FILE__));
 define('SM_DENTAL_INSURANCE_ASSETS_DIR', trailingslashit(plugins_url('/sm-dental-insurance/', SM_DENTAL_INSURANCE_DIR) . 'assets'));
-define('SM_DENTAL_INSURANCE_INCLUDES_DIR', trailingslashit(SM_DENTAL_INSURANCE_DIR . 'includes'));
 define('SM_DENTAL_INSURANCE_SHORTCODES_DIR', trailingslashit(SM_DENTAL_INSURANCE_DIR . 'shortcodes'));
 define('SM_DENTAL_INSURANCE_DATA_URL', trailingslashit(SM_DENTAL_INSURANCE_ASSETS_DIR . 'data'));
 

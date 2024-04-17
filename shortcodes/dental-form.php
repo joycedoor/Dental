@@ -1,6 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
 <div id="app" data-url="<?php echo esc_url(SM_DENTAL_INSURANCE_DATA_URL); ?>">
+    <error-popup :message="errorMessage" :visible="errorVisible"></error-popup>
     <div class="steps-nav">
         <div class="step" :class="{ 'active': currentStep === 1 }">
             <div class="step-label">①  投保人信息</div>
@@ -40,7 +41,6 @@
                         <input type="text" ref="datepicker" class="input-label" @input="checkInput" readonly>
                         <span class="placeholder-style" v-show="showPlaceholderbd">请输入您的生日</span>
                     </div>
-                    <div v-if="errorMessage" :class="{'error-message': true, 'shake-animation': showErrorAnimation}">{{ errorMessage }}</div>
                 </div>
                 <div class="right-bg-pic">
                     <img
