@@ -1,0 +1,359 @@
+[
+    {
+        "State": "CA",
+        "Plans": "MWG1, MWG2, UHC1, DELTA1",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "NY",
+        "Plans": "DELTA1, MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "DELTA1"
+    },
+    {
+        "State": "PA",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "IL",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "VA",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "NC",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "GA",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "CT",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "OH",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "MO",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "MA",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "MD",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "DC",
+        "Plans": "MWG1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "MWG2"
+    },
+    {
+        "State": "SC",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "IA",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "FL",
+        "Plans": "MWG1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "MWG2"
+    },
+    {
+        "State": "CO",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "IN",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "MN",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "NJ",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "TX",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "TN",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "UT",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "LA",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "WI",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "AZ",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "MS",
+        "Plans": "MWG1,UHC1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "UHC1"
+    },
+    {
+        "State": "MI",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "KY",
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
+    },
+    {
+        "State": "AL",
+        "Plans": "MWG1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "MWG2"
+    },
+    {
+        "State": "DE",
+        "Plans": "MWG1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "MWG2"
+    },
+    {
+        "State": "HI",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "NM",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "NV",
+        "Plans": "MWG1, MWG2",
+        "D3_Selected_Highlight": "MWG1",
+        "D2_Selected_Highlight": "MWG1",
+        "D1_Selected_Highlight": "MWG2"
+    },
+    {
+        "State": "RI",
+        "Plans": "MWG3",
+        "D3_Selected_Highlight": "MWG3",
+        "D2_Selected_Highlight": "MWG3",
+        "D1_Selected_Highlight": "MWG3"
+    },
+    {
+        "State": "AK",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "AR",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "ID",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "KS",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "ME",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "MT",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "ND",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "NE",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "NH",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "OK",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "OR",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "SD",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "VT",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "WA",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "WV",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    },
+    {
+        "State": "WY",
+        "Plans": null,
+        "D3_Selected_Highlight": null,
+        "D2_Selected_Highlight": null,
+        "D1_Selected_Highlight": null
+    }
+]
