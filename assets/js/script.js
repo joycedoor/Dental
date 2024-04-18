@@ -64,6 +64,38 @@ new Vue({
             }, 5000);
 
         },
+        goToPlanUrl(plan) {
+            // 使用 fetch 来加载 JSON 数据
+            fetch(this.dataUrl + 'plan_url.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 根据当前 state 筛选合适的数据条目
+                    const statePlan = data.find(p => p.State === this.state);
+                    if (!statePlan) {
+                        console.error('No plan found for state:', this.state);
+                        return;
+                    }
+
+                    // 从 plan.ID 中移除所有数字以获取 provider 名称
+                    const provider = plan.ID.replace(/[0-9]/g, '');
+
+                    // 获取对应的 URL
+                    const url = statePlan[provider];
+                    if (url) {
+                        window.open(url, '_blank').focus(); // 如果 URL 存在，则打开链接
+                    } else {
+                        console.error('No URL found for provider:', provider);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching plan URLs:', error);
+                });
+        },
         ZipToState(callback) {
             fetch(`https://api.zippopotam.us/us/${this.zipCode}`)
                 .then(response => {
@@ -177,10 +209,34 @@ new Vue({
                     } else {
                         plans = this.reorderPlans(plans, this.filter.D1_Selected_Highlight);
                     }
+
+                    // 计算每个计划的起始日期并保存到 plan 对象中
+                    plans.forEach(plan => {
+                        plan.earliestEffectiveDate = this.calculateEffectiveDate(plan.ID); //
+                    });
+
                     // 设置处理完的数据
                     this.plans = plans;
                     this.currentStep = 3;
                     this.errorMessage = '';
+
+                    // 使用 setTimeout 来延迟执行
+                    setTimeout(() => {
+                        // 修改mask容器的overflow属性
+                        const maskContainer = this.$el.querySelector('.mask');
+                        if (maskContainer) {
+                            maskContainer.style.overflow = 'visible';
+                        }
+
+                        // 将steps-wrapper容器中除了最后一个child之外的所有child设置为隐藏
+                        const stepsWrapper = this.$el.querySelector('.steps-wrapper');
+                        if (stepsWrapper) {
+                            const children = stepsWrapper.children;
+                            for (let i = 0; i < children.length - 1; i++) {
+                                children[i].style.visibility = 'hidden';
+                            }
+                        }
+                    }, 500);
                 })
                 .catch(error => {
                     console.error('Error loading the plan data:', error);

@@ -1,0 +1,308 @@
+[
+    {
+        "State": "CA",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": "https://www.deltadentalins.com/shopping/delta/get-a-quote?issuerCode=DELTA&brokerId=208551"
+    },
+    {
+        "State": "NY",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": "https://www.deltadentalins.com/shopping/delta/get-a-quote?issuerCode=DELTA&brokerId=225517"
+    },
+    {
+        "State": "PA",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "IL",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "VA",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "NC",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "GA",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "CT",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "OH",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "MO",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "MA",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "MD",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "DC",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "SC",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "IA",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "FL",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "CO",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "IN",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "MN",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "NJ",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "TX",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "TN",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "UT",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "LA",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "WI",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "AZ",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "MS",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "MI",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "KY",
+        "UHC": "https://shop.uhone.com/en/quote/census/dental?brokerid=AA5552816",
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "AK",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "AL",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "AR",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "DE",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "HI",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "ID",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "KS",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "ME",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "MT",
+        "UHC": null,
+        "MWG": null,
+        "DELTA": null
+    },
+    {
+        "State": "ND",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "NE",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "NH",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "NM",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "NV",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "OK",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "OR",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "RI",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "SD",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712-001",
+        "DELTA": null
+    },
+    {
+        "State": "VT",
+        "UHC": null,
+        "MWG": null,
+        "DELTA": null
+    },
+    {
+        "State": "WA",
+        "UHC": null,
+        "MWG": null,
+        "DELTA": null
+    },
+    {
+        "State": "WV",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    },
+    {
+        "State": "WY",
+        "UHC": null,
+        "MWG": "https://brokers.insuranceforeveryone.com/?share=true&Portal=19029712",
+        "DELTA": null
+    }
+]
