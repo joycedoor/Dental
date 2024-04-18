@@ -41,6 +41,7 @@ function sm_dental_insurance_deactivation() {
 
 class SM_Dental_Insurance {
     private static $instance = null;
+    public $lang = 'en';
 
     public static function getInstance() {
         if (null === self::$instance) {
@@ -61,21 +62,41 @@ class SM_Dental_Insurance {
     }
 
     public function enqueue_scripts_and_styles() {
-        wp_enqueue_style('flatpickr-material-red-style', 'https://npmcdn.com/flatpickr/dist/themes/material_red.css', array(), null);
-        wp_enqueue_style('sm-dental-insurance-style', SM_DENTAL_INSURANCE_ASSETS_DIR . 'css/style.css', array('flatpickr-material-red-style'), '1.0.0');
-        wp_enqueue_style('sm-flatpickr-style', SM_DENTAL_INSURANCE_ASSETS_DIR . 'css/flatpickr_customize.css', array(), '1.0.0');
+        wp_enqueue_style('sm-dental-insurance-style', SM_DENTAL_INSURANCE_ASSETS_DIR . 'css/style.css', array(), '1.0.0');
 
-        wp_enqueue_script('sm-flatpickr', 'https://cdn.jsdelivr.net/npm/flatpickr', array(), '1.0.0', true);
-        wp_enqueue_script('sm-flatpickr-year-plugin', SM_DENTAL_INSURANCE_ASSETS_DIR . 'js/year_flatpickr_plugin.js', array('sm-flatpickr'), '1.0.0', true);
+        wp_enqueue_script('pikaday-js', 'https://cdn.jsdelivr.net/npm/pikaday/pikaday.js');
+        wp_enqueue_style('pikaday-css', 'https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css');
         wp_enqueue_script('vuejs', 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js', array(), '2.6.12', true);
 
-        wp_enqueue_script('sm-dental-insurance-script', SM_DENTAL_INSURANCE_ASSETS_DIR . 'js/script.js', array('vuejs', 'sm-flatpickr-year-plugin', 'sm-flatpickr'), '1.0.0', true);
+        wp_enqueue_script('sm-dental-insurance-script', SM_DENTAL_INSURANCE_ASSETS_DIR . 'js/script.js', array('vuejs'), '1.0.0', true);
+        wp_localize_script('sm-dental-insurance-script', 'smDentalData', array(
+            'lang' => $this->lang
+        ));
     }
 
     // 短码实现
-    public function dental_form_shortcode() {
+    public function dental_form_shortcode($atts) {
         ob_start();
-        include(SM_DENTAL_INSURANCE_SHORTCODES_DIR . 'dental-form.php');
+        $atts = shortcode_atts(array(
+            'lang' => 'auto', // 默认自动检测
+        ), $atts, 'sm-cep-form');
+
+        // 如果设置了语言参数，则使用参数指定的语言，否则从浏览器获取
+        if ($atts['lang'] !== 'auto') {
+            $lang = $atts['lang'] === 'zh' ? 'cn' : 'en';
+        } else {
+            $browserLanguages = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+            $languageList = explode(',', $browserLanguages);
+            $userPreferredLanguage = strtolower(substr($languageList[0], 0, 2));
+            $lang = $userPreferredLanguage === 'zh' ? 'cn' : 'en';
+        }
+
+        $this->lang = $lang;
+        if ($lang === 'cn') {
+            include(SM_DENTAL_INSURANCE_SHORTCODES_DIR . 'dental-form-cn.php');
+        } else {
+            include(SM_DENTAL_INSURANCE_SHORTCODES_DIR . 'dental-form-en.php');
+        }
         return ob_get_clean();
     }
 }

@@ -2,6 +2,10 @@ Vue.component('error-popup', {
     props: ['message', 'visible'],
     template: `
         <div v-if="visible" class="error-popup">
+            <svg class="error-icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="28" height="28" rx="14" fill="white" fill-opacity="0.24"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.3334 14.0003C22.3334 9.39795 18.6024 5.66699 14 5.66699C9.39765 5.66699 5.66669 9.39795 5.66669 14.0003C5.66669 18.6027 9.39765 22.3337 14 22.3337C18.6024 22.3337 22.3334 18.6027 22.3334 14.0003ZM14 9.20866C14.3452 9.20866 14.625 9.48848 14.625 9.83366V14.8337C14.625 15.1788 14.3452 15.4587 14 15.4587C13.6548 15.4587 13.375 15.1788 13.375 14.8337V9.83366C13.375 9.48848 13.6548 9.20866 14 9.20866ZM14 18.167C14.4603 18.167 14.8334 17.7939 14.8334 17.3337C14.8334 16.8734 14.4603 16.5003 14 16.5003C13.5398 16.5003 13.1667 16.8734 13.1667 17.3337C13.1667 17.7939 13.5398 18.167 14 18.167Z" fill="white"/>
+            </svg>
             {{ message }}
         </div>
     `
@@ -13,14 +17,8 @@ new Vue({
         currentStep: 1,
         zipCode: '',
         state: '',
-        showPlaceholderzip: true,
-        showPlaceholderbd: true,
         birthday: '',
-        services: [
-            { id: 1, name: '预防性牙科项目 Preventive Procedure', detail: '普通洗牙 / 口腔X-Ray', checked: false },
-            { id: 2, name: '基础牙科项目 Basic Procedure', detail: '补牙 / 封闭', checked: false },
-            { id: 3, name: '重大牙科项目 Major Procedure', detail: '牙冠 / 拔牙 / 根管 / 假牙', checked: false },
-        ],
+        services: [],
         selectedServices: [],
         errorMessage: '', // 用于显示错误消息
         errorVisible: false,
@@ -34,25 +32,28 @@ new Vue({
     mounted() {
         this.initDatePicker();
         this.dataUrl = this.$el.dataset.url;
+        this.services = this.computedServices;
     },
-
     methods: {
         initDatePicker() {
-            flatpickr(this.$refs.datepicker, {
-                plugins: [
-                    new yearDropdownPlugin({
-                        date: "01/01/2000",
-                        yearStart: 80,
-                        yearEnd: -5
-                    })
-                ],
-                altInput: true,
-                altFormat: "F j, Y",
-                dateFormat: "Y-m-d",
-                shorthandCurrentMonth: true,
+            const eighteenYearsAgo = new Date();
+            eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
 
-                onChange: (selectedDates, dateStr, instance) => {
-                    this.birthday = dateStr; // 更新生日数据属性
+            this.pikaday = new Pikaday({
+                field: document.getElementById('birthday'),
+                format: 'YYYY-MM-DD',
+                defaultDate: eighteenYearsAgo,
+                setDefaultDate: false,
+                i18n: {
+                    previousMonth: 'Previous Month',
+                    nextMonth: 'Next Month',
+                    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                    weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+                },
+                onSelect: (date) => {
+                    document.getElementById('birthday').value = date.toISOString().substring(0, 10);
+                    this.birthday = date.toISOString().substring(0, 10);
                 }
             });
         },
@@ -128,11 +129,6 @@ new Vue({
         applyTranslation() {
             const wrapper = this.$el.querySelector('.steps-wrapper');
             wrapper.style.transform = `translateX(${this.translateXValue})`;
-        },
-        checkInput() {
-            // 当 input 不为空时，隐藏占位符
-            this.showPlaceholderzip = this.zipCode.length === 0;
-            this.showPlaceholderbd = this.birthday.length === 0;
         },
         calculateEffectiveDate(planProvider) {
             const now = new Date();
@@ -216,6 +212,23 @@ new Vue({
             // 假设每一步都是100%的视图宽度，根据当前步骤计算需要滑动的距离
             const stepOffset = this.currentStep - 1;
             return -(stepOffset * 100) + '%';
+        },
+        computedServices() {
+            if (smDentalData.lang === 'en') {
+                return [
+                    { id: 1, name: 'Preventive Procedure', detail: 'Teeth Cleaning / Oral X-Ray', checked: false },
+                    { id: 2, name: 'Basic Procedure', detail: 'Fillings / Sealants', checked: false },
+                    { id: 3, name: 'Major Procedure', detail: 'Oral Surgery / Root Canals / Dentures', checked: false },
+                ];
+            } else if (smDentalData.lang === 'cn') {
+                return [
+                    { id: 1, name: '预防性牙科项目', detail: '普通洗牙 / 口腔X-Ray', checked: false },
+                    { id: 2, name: '基础牙科项目', detail: '补牙 / 封闭', checked: false },
+                    { id: 3, name: '重大牙科项目', detail: '牙冠 / 拔牙 / 根管 / 假牙', checked: false },
+                ];
+            } else {
+                return [];
+            }
         }
     },
     watch: {

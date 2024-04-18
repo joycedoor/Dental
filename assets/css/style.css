@@ -32,6 +32,13 @@
     position: relative;
     padding: 20px 40px 20px 40px;
     width: 100%;
+    overflow: visible;
+}
+
+#crown-holder {
+    position: relative;  /* 新的定位上下文 */
+    height: 0;  /* 不占用额外空间 */
+    z-index: 10;  /* 确保在最前显示 */
 }
 
 .mask {
@@ -58,31 +65,26 @@
     flex-shrink: 0; /* 防止缩小 */
     min-height: 350px;
 }
+.previous-step, .next-step {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    background-color: #E93E34;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+    width: 150px;
+    height: 40px;
+}
 
 .previous-step {
-    position: absolute; /* 使用固定定位 */
-    bottom: 20px; /* 距离底部20像素 */
-    left: 20px; /* 距离右边20像素 */
-    padding: 10px 20px; /* 按钮内边距，可根据需要调整 */
-    background-color: #ff4a4a; /* 按钮背景颜色，可根据需要调整 */
-    color: white; /* 文字颜色 */
-    border: none; /* 去掉边框 */
-    border-radius: 5px; /* 圆角边框 */
-    cursor: pointer; /* 鼠标悬浮时显示手形光标 */
-    z-index: 1000; /* 确保按钮在最上层 */
+    left: 20px;
 }
 
 .next-step {
-    position: absolute; /* 使用固定定位 */
-    bottom: 20px; /* 距离底部20像素 */
-    right: 20px; /* 距离右边20像素 */
-    padding: 10px 20px; /* 按钮内边距，可根据需要调整 */
-    background-color: #ff4a4a; /* 按钮背景颜色，可根据需要调整 */
-    color: white; /* 文字颜色 */
-    border: none; /* 去掉边框 */
-    border-radius: 5px; /* 圆角边框 */
-    cursor: pointer; /* 鼠标悬浮时显示手形光标 */
-    z-index: 1000; /* 确保按钮在最上层 */
+    right: 20px;
 }
 
 .input-box {
@@ -102,30 +104,24 @@
     outline: none; /* 在聚焦时去除轮廓线 */
 }
 
-.input-label,
-.placeholder-style {
+input::placeholder {
+    color: #72787A;
+    font-family: 'Lato', sans-serif;
+}
+
+.input-label{
     font-family: 'Lato', sans-serif;
     font-size: 16px; /* 示例字体大小 */
     font-weight: 400; /* 示例字体权重 */
-    color: #aaa; /* 示例字体颜色 */
     line-height: 1.5; /* 示例行高 */
-}
-
-.input-label {
     border: none; /* 去除边框 */
     background: none; /* 透明背景 */
     width: 100%; /* 输入框宽度填满容器 */
     position: relative;
-    color: #000000;
-    padding-left: 0px; /* 根据内部图标的宽度调整，和 .placeholder-style 的 left 值保持一致 */
 }
 
-.placeholder-style {
-    position: absolute;
-    left: 65px; /* 保持与 input 左边距一致 */
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* 防止伪元素阻挡输入 */
+.input-label {
+
 }
 
 .input-area {
@@ -137,7 +133,7 @@
 }
 
 .bg-img {
-    width: 80%; /* 图片宽度充满容器 */
+    width: 100%; /* 图片宽度充满容器 */
     height: auto; /* 高度自适应，保持原有宽高比 */
     object-fit: cover; /* 覆盖填充整个元素框 */
     padding-left: 30px;
@@ -148,6 +144,8 @@
     width: 40%; /* 图片占据40%的宽度 */
     height: auto; /* 高度自适应 */
     padding-left: 20px; /* 与输入区域间隔20px */
+    display:block;
+    margin:10px;
 }
 
 .title {
@@ -163,12 +161,27 @@
     width: 36px;
 }
 
-/* 日期选择器的颜色主题 */
-.flatpickr-day.today {
-    background: #aaa !important; /* 主题颜色，示例中使用Teal色 */
+.pika-label {
+    color: #AD0000;
 }
-.flatpickr-day.selected{
-    background: #ff4a4a !important; /* 选择的日期颜色，示例中使用Green色 */
+
+.pika-table th {
+    color: #AD0000 !important; /* 红色 */
+}
+
+.pika-button.pika-day.is-today {
+    color: white;
+    background-color: #AD0000;
+}
+
+.pika-button.pika-day:hover {
+    color: white;
+    background-color: #AD0000;
+}
+
+.pika-button.pika-day.is-selected {
+    color: white;
+    background-color: #AD0000;
 }
 
 @keyframes shake {
@@ -179,6 +192,7 @@
 
 .subtitle {
     font: 700 20px Lato, sans-serif;
+    line-height: 28px;
     flex-grow: 1;
     flex-basis: auto;
     margin: auto 0;
@@ -212,9 +226,16 @@
 
 .service-detail {
     padding-left: 22px; /* 根据复选框的实际宽度调整，使详情文本与标签对齐 */
-    font-size: 13px; /* 字体大小调整，可根据需要更改 */
+    font-size: 14px; /* 字体大小调整，可根据需要更改 */
+    line-height: 19.6px;
     font-family: 'Lato', sans-serif;
-    margin-top:5px;
+}
+
+.service-name {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25.2px;
 }
 
 /* 容器和卡片的基本布局 */
@@ -225,6 +246,7 @@
     padding: 20px;
     border-radius: 8px; /* 四个角有弧度 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微的阴影效果 */
+    position: relative;
 }
 
 /* 第一张卡片的特殊样式 */
@@ -236,7 +258,7 @@
 /* 除第一张外的卡片样式 */
 .dental-plan-card:not(.first-card) {
     background-color: white; /* 背景颜色 */
-    color: black; /* 字体颜色 */
+    color: #333333; /* 字体颜色 */
     border: 2px solid #ff4a4a; /* 设置边框为红色 */
 }
 
@@ -258,7 +280,7 @@
 /* 标题颜色调整 */
 .dental-plan-title, .dental-plan-subtitle {
     margin: 0;
-    color: black; /* 默认颜色为黑色 */
+    color: #333333; /* 默认颜色为黑色 */
     font-family: 'Lato', sans-serif;
 }
 
@@ -342,7 +364,7 @@ dental-plan-subtitle {
 .dental-plan-enroll-button {
     padding: 10px 20px;
     background-color: white; /* 按钮颜色 */
-    color: black;
+    color: #333333;
     border: 2px solid #ff4a4a;
     border-radius: 5px;
     cursor: pointer;
@@ -354,30 +376,30 @@ dental-plan-subtitle {
 /* 皇冠图标样式 */
 .crown-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-}
-
-/* 滚动容器样式 */
-.scroll-container {
-    overflow-y: auto; /* 添加垂直滚动 */
-}
-
-.error-popup {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 300px;
-    background-color: #f44336; /* 红色背景 */
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    top: -25px;  /* 初始值 */
+    right: -25px;  /* 初始值 */
+    width: 50px;
+    height: 50px;
     z-index: 1000;
 }
 
+.error-popup {
+    display: flex;
+    align-items: center; /* 确保垂直居中对齐 */
+    justify-content: flex-start; /* 内容靠左对齐 */
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    width: 453px;
+    height: 52px;
+    background-color: #E93E34;
+    color: white;
+    border-radius: 4px;
+    z-index: 1000;
+}
 
+.error-icon {
+    margin-right: 10px; /* 图标和文本之间的间距 */
+    flex-shrink: 0; /* 防止图标在容器缩小时被压缩 */
+}
