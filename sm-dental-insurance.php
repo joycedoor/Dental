@@ -4,7 +4,7 @@
  * Plugin Name: SM Dental Insurance
  * Description: A plugin to provide dental insurance quotes and options.
  * Author: Zibo Men
- * Version: 1.0.0
+ * Version: 1.1.0
  *
  * @package           SM Dental Insurance
  * @author            Your Name
@@ -67,6 +67,7 @@ class SM_Dental_Insurance {
         wp_enqueue_script('pikaday-js', 'https://cdn.jsdelivr.net/npm/pikaday/pikaday.js');
         wp_enqueue_style('pikaday-css', 'https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css');
         wp_enqueue_script('vuejs', 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js', array(), '2.6.12', true);
+
 
         wp_enqueue_script('sm-dental-insurance-script', SM_DENTAL_INSURANCE_ASSETS_DIR . 'js/script.js', array('vuejs'), '1.0.0', true);
         wp_localize_script('sm-dental-insurance-script', 'smDentalData', array(

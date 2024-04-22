@@ -114,8 +114,10 @@ new Vue({
                                 if (!filter || !filter.Plans) {
                                     throw new Error('No Plans Available');
                                 }
-                                this.availablePlans = filter.Plans.split(', ').map(plan => plan.trim());
+                                this.availablePlans = filter.Plans.split(',').map(plan => plan.trim());
+                                console.log(this.availablePlans);
                                 this.filter = filter;
+                                console.log(this.filter);
                             });
                     } else {
                         throw new Error('Invalid Zip Code');

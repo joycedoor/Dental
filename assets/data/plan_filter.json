@@ -22,7 +22,7 @@
     },
     {
         "State": "IL",
-        "Plans": "MWG1,UHC1, MWG2",
+        "Plans": "MWG1, UHC1, MWG2",
         "D3_Selected_Highlight": "MWG1",
         "D2_Selected_Highlight": "MWG1",
         "D1_Selected_Highlight": "UHC1"
