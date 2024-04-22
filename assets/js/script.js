@@ -262,6 +262,9 @@ new Vue({
                 this.selectedServices.push(serviceId);
             }
         },
+        refreshPage() {
+            window.location.reload();
+        },
     },
     computed: {
         translateXValue() {

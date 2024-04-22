@@ -12,6 +12,8 @@
 }
 .step-label {
     font-family: Lato, sans-serif;
+    font-size: 16px;
+    line-height: 22.4px;
 }
 .step-bar {
     border-radius: 10px;
@@ -63,12 +65,12 @@
     justify-content: space-between;
 
     flex-shrink: 0; /* 防止缩小 */
-    min-height: 350px;
+    min-height: 330px;
 }
 .previous-step, .next-step {
     position: absolute;
-    bottom: 20px;
     padding: 10px 20px;
+    margin-top: 10px;
     background-color: #E93E34;
     border: none;
     border-radius: 2px;
@@ -80,11 +82,15 @@
 }
 
 .previous-step {
-    left: 20px;
+    left: 40px;
 }
 
 .next-step {
-    right: 20px;
+    right: 40px;
+}
+
+input[type=checkbox] {
+    margin:3px 3px 3px 4px;
 }
 
 .input-box {
@@ -136,8 +142,6 @@ input::placeholder {
     width: 100%; /* 图片宽度充满容器 */
     height: auto; /* 高度自适应，保持原有宽高比 */
     object-fit: cover; /* 覆盖填充整个元素框 */
-    padding-left: 30px;
-    padding-bottom: 30px;
 }
 
 .right-bg-pic {
@@ -145,7 +149,7 @@ input::placeholder {
     height: auto; /* 高度自适应 */
     padding-left: 20px; /* 与输入区域间隔20px */
     display:block;
-    margin:10px;
+
 }
 
 .title {
@@ -236,6 +240,7 @@ input::placeholder {
     font-weight: 700;
     font-size: 18px;
     line-height: 25.2px;
+    margin: 0 0 0 0;
 }
 
 /* 容器和卡片的基本布局 */
@@ -337,7 +342,10 @@ dental-plan-subtitle {
 }
 
 .dental-plan-feature-text {
-    line-height: 0; /* 较紧凑的行距，可以根据需要调整这个值 */
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 0px;
+    margin: 0 0 0 0;
 }
 
 /* 价格和按钮的布局 */
@@ -355,6 +363,8 @@ dental-plan-subtitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding:0 0 0 0;
+    background: transparent;
 }
 
 .dental-plan-cta {

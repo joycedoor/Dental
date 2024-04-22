@@ -122,4 +122,5 @@
     <button v-if="currentStep === 2" class="previous-step" type="button" @click="goToNextStep(-1)">Previous</button>
     <button v-if="currentStep === 1" class="next-step" type="button" @click="goToNextStep(1)">Next</button>
     <button v-if="currentStep === 2" class="next-step" type="button" @click="fetchPlans">Submit</button>
+    <button v-if="currentStep === 3" class="previous-step" type="button" @click="refreshPage">Return</button>
 </div>
