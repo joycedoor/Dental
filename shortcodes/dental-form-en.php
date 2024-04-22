@@ -96,9 +96,10 @@
                             </header>
                             <section class="dental-plan-features">
                                 <div class="dental-plan-feature" v-for="trait in plan.Traits" :key="trait">
-                                    <div class="checkmark-circle">
-                                        <p>√</p>
-                                    </div>
+                                    <svg viewBox="-1 -1 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" class="check-icon">
+                                        <circle cx="16" cy="16" r="15" fill="none" stroke="#ff4a4a" stroke-width="2"/>
+                                        <path d="M13.0159 19.6362L9.1052 15.7255L7.7782 17.0525L13.0159 22.2902L24.2696 11.0365L22.9426 9.70947L13.0159 19.6362Z" fill="#ff4a4a"/>
+                                    </svg>
                                     <p class="dental-plan-feature-text">{{ trait }}</p>
                                 </div>
                             </section>

@@ -294,9 +294,22 @@ input::placeholder {
     line-height: 26.4px;
 }
 
-dental-plan-subtitle {
+.dental-plan-subtitle {
     font-size: 20px;
     line-height: 22px;
+}
+
+.check-icon{
+    width: 20.4px;
+    height: 20.4px;
+}
+
+.first-card .check-icon circle {
+    stroke: white;
+}
+
+.first-card .check-icon path {
+    fill: white;
 }
 
 /* 第一张卡片标题为白色 */
@@ -315,36 +328,13 @@ dental-plan-subtitle {
     display: flex;
     align-items: center;
     margin-bottom: 3px; /* 特征间的行间距更小 */
-}
-
-.checkmark-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%; /* 圆形图标 */
-    margin-right: 10px;
-    position: relative;
-    background-color: #000; /* 背景色为黑色 */
-    border: 2px solid transparent; /* 默认没有边框 */
-    display: flex; /* 使用flex布局 */
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-}
-
-.checkmark-circle p {
-    color: white; /* 设置对勾颜色为白色 */
-    margin: 0; /* 去除默认的外边距 */
-    font-size: 15px; /* 可以调整字体大小以适应圆形大小 */
-}
-
-.first-card .checkmark-circle {
-    background-color: transparent; /* 第一张卡片背景透明 */
-    border: 2px solid white; /* 第一张卡片边框为白色 */
+    gap:5px;
 }
 
 .dental-plan-feature-text {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    line-height: 0px;
+    line-height: 22.4px;
     margin: 0 0 0 0;
 }
 

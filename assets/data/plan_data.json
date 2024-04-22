@@ -9,7 +9,7 @@
       "No waiting period & up to 60% benefit for Basic & Major Procedures",
       "Delta Dental PPO Network"
     ],
-    "Price": "$20.99"
+    "Price": "$45.48"
   },
   {
     "ID": "MWG2",
@@ -21,7 +21,7 @@
       "No waiting period & up to 60% benefit for Basic Procedures",
       "Delta Dental PPO Network"
     ],
-    "Price": "$20.99"
+    "Price": "$35.88"
   },
   {
     "ID": "MWG3",
@@ -33,7 +33,7 @@
       "No waiting period & up to 40% benefit for Basic & Major Procedures",
       "Maximum Care PPO network"
     ],
-    "Price": "$20.99"
+    "Price": "$42.29"
   },
   {
     "ID": "DELTA1",
@@ -45,7 +45,7 @@
       "Flexible effective date",
       "Delta Dental PPO Network"
     ],
-    "Price": "$20.99"
+    "Price": "$24.24"
   },
   {
     "ID": "UHC1",
@@ -57,7 +57,7 @@
       "Effective as early as the next day & no waiting period",
       "United Healthcare National Options PPO 30 Network"
     ],
-    "Price": "$20.99"
+    "Price": "$26.66"
   },
   {
     "ID": "UHC2",
@@ -69,6 +69,6 @@
       "100% coverage for preventive procedures",
       "United Healthcare National Options PPO 30 Network"
     ],
-    "Price": "$20.99"
+    "Price": "$19.22"
   }
 ]
