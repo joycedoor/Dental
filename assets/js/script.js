@@ -65,6 +65,27 @@ new Vue({
 
         },
         goToPlanUrl(plan) {
+
+            fetch(smDentalData.ajaxurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'handle_save_user_selection',  // 对应PHP函数的处理action
+                    zip: this.zipCode,
+                    dob: this.birthday,
+                    service: JSON.stringify(this.selectedServices),
+                    selected: plan.ID,
+                })
+            }).then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
             // 使用 fetch 来加载 JSON 数据
             fetch(this.dataUrl + 'plan_url.json')
                 .then(response => {
@@ -80,10 +101,8 @@ new Vue({
                         console.error('No plan found for state:', this.state);
                         return;
                     }
-
                     // 从 plan.ID 中移除所有数字以获取 provider 名称
                     const provider = plan.ID.replace(/[0-9]/g, '');
-
                     // 获取对应的 URL
                     const url = statePlan[provider];
                     if (url) {

@@ -25,8 +25,9 @@ function sm_dental_insurance_activation() {
     $sql = "CREATE TABLE " . $table_name . " (
                     `id` bigint(20) NOT NULL AUTO_INCREMENT,
                     `zip` varchar(128) CHARACTER SET utf8 NULL DEFAULT NULL,
+                    `dob` varchar(128) CHARACTER SET utf8 NULL DEFAULT NULL,
                     `service` varchar(128) CHARACTER SET utf8 NULL DEFAULT NULL,
-                    `phone` varchar(128) CHARACTER SET utf8 NULL DEFAULT NULL,
+                    `selected` varchar(128) CHARACTER SET utf8 NULL DEFAULT NULL,
                     `created_date` datetime NULL DEFAULT NULL,
                     PRIMARY KEY (`id`)
                 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
@@ -52,6 +53,7 @@ class SM_Dental_Insurance {
 
     public function __construct() {
         $this->init();
+
     }
 
     public function init() {
@@ -59,6 +61,8 @@ class SM_Dental_Insurance {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts_and_styles'));
         // 短码
         add_shortcode('sm-dental-form', array($this, 'dental_form_shortcode'));
+        add_action('wp_ajax_handle_save_user_selection', array($this, 'handle_save_user_selection'));
+        add_action('wp_ajax_nopriv_handle_save_user_selection', array($this, 'handle_save_user_selection')); // 为未登录用户添加
     }
 
     public function enqueue_scripts_and_styles() {
@@ -67,10 +71,11 @@ class SM_Dental_Insurance {
         wp_enqueue_script('pikaday-js', 'https://cdn.jsdelivr.net/npm/pikaday/pikaday.js');
         wp_enqueue_style('pikaday-css', 'https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css');
         wp_enqueue_script('vuejs', 'https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js', array(), '2.6.12', true);
-
+        wp_enqueue_script('jquery');
 
         wp_enqueue_script('sm-dental-insurance-script', SM_DENTAL_INSURANCE_ASSETS_DIR . 'js/script.js', array('vuejs'), '1.0.0', true);
         wp_localize_script('sm-dental-insurance-script', 'smDentalData', array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
             'lang' => $this->lang
         ));
     }
@@ -100,6 +105,40 @@ class SM_Dental_Insurance {
         }
         return ob_get_clean();
     }
+
+    public function handle_save_user_selection() {
+        error_log("triggered");
+        global $wpdb;
+        $table_name = $wpdb->prefix . "sm_dental";
+
+        if (empty($_POST['zip']) || empty($_POST['dob']) || empty($_POST['selected'])) {
+            error_log('Some fields are empty');
+            wp_send_json_error('Some fields are empty');
+        }
+
+        $zip = sanitize_text_field($_POST['zip']);
+        $dob = sanitize_text_field($_POST['dob']);
+        $service = sanitize_text_field($_POST['service']);
+        $selected = sanitize_text_field($_POST['selected']);
+        $created_date = current_time('mysql', 1);
+
+        $result = $wpdb->insert($table_name, [
+            'zip' => $zip,
+            'dob' => $dob,
+            'service' => $service,
+            'selected' => $selected,
+            'created_date' => $created_date
+        ]);
+
+        if ($result) {
+            wp_send_json_success('Data saved successfully');
+        } else {
+            error_log('Failed to save data: ' . $wpdb->last_error);
+            wp_send_json_error('Failed to save data');
+        }
+    }
+
+
 }
 
 function sm_dental_insurance_init() {
