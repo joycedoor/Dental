@@ -5,7 +5,7 @@
         <div class="step" :class="{ 'active': currentStep === 1 }">
             <div class="step-label">
                 <div>
-                    ① 
+                    ①
                 </div>
                 <div>
                     投保人信息
@@ -16,7 +16,7 @@
         <div class="step" :class="{ 'active': currentStep === 2 }">
             <div class="step-label">
                 <div>
-                    ② 
+                    ②
                 </div>
                 <div>
                     选择所需服务
@@ -27,7 +27,7 @@
         <div class="step" :class="{ 'active': currentStep === 3 }">
             <div class="step-label">
                 <div>
-                    ③ 
+                    ③
                 </div>
                 <div>
                     选择计划
@@ -49,7 +49,7 @@
                                 src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/search.svg'; ?>"
                                 class="img"
                         />
-                        <input type="text" v-model="zipCode" class="input-label" required placeholder="输入您的邮编">
+                        <input type="text" v-model="zipCode" class="input-label" required placeholder="输入您的邮编" :tabindex="currentStep === 1 ? 0 : -1">
 
                     </div>
                     <div class="input-box">
@@ -58,7 +58,7 @@
                                 src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/calender.svg'; ?>"
                                 class="img"
                         />
-                        <input type="text" id="birthday" v-model="birthday" readonly placeholder="选择您的出生日期" class="input-label">
+                        <input type="text" id="birthday" v-model="birthday" readonly placeholder="选择您的出生日期" class="input-label" :tabindex="currentStep === 1 ? 0 : -1">
 
                     </div>
                 </div>
@@ -86,13 +86,13 @@
                     </div>
                     <div v-for="service in services" :key="service.id" class="service-selection">
                         <div class="checkbox-label-container">
-                            <input type="checkbox" :id="service.id" :value="service.id" @change="selectService(service.id)">
+                            <input type="checkbox" :id="service.id" :value="service.id" @change="selectService(service.id)" :tabindex="currentStep === 2 ? 0 : -1">
                             <label :for="service.id" class="service-name">{{ service.name }}</label>
                         </div>
                         <span class="service-detail">{{ service.detail }}</span>
                     </div>
                     <div class="step2contact">
-                        <p style="font-family: 'Lato', sans-serif; font-size: 16px; line-height: 22.4px"> 不确定您的牙科项目? <a href="https://smcovered.com/cn/support/contact-us/" target="_blank" style="font-weight: bold; text-decoration: underline;">点击这里，联系我们</a> </p>
+                        <p style="font-family: 'Lato', sans-serif; font-size: 16px; line-height: 22.4px"> 不确定您的牙科项目? <a href="https://smcovered.com/cn/support/contact-us/" target="_blank" style="font-weight: bold; text-decoration: underline;" :tabindex="currentStep === 2 ? 0 : -1">点击这里，联系我们</a> </p>
                     </div>
                 </div>
                 <div class="right-bg-pic">
@@ -149,7 +149,7 @@
                         </p>
                     </div>
                     <div class="step2contact" style="margin-top: 0px">
-                        <p style="font-family: 'Lato', sans-serif; font-size: 18px; line-height: 25.2px"> 不确定您的牙科项目? <a href="https://smcovered.com/cn/support/contact-us/" target="_blank" style="font-weight: bold; text-decoration: underline;">点击这里，联系我们</a> </p>
+                        <p style="font-family: 'Lato', sans-serif; font-size: 18px; line-height: 25.2px"> 不确定您的牙科项目? <a href="https://smcovered.com/cn/support/contact-us/" target="_blank" style="font-weight: bold; text-decoration: underline;" :tabindex="currentStep === 3 ? 0 : -1">点击这里，联系我们</a> </p>
                     </div>
                 </div>
             </div>

@@ -4,11 +4,11 @@
  * Plugin Name: SM Dental Insurance
  * Description: A plugin to provide dental insurance quotes and options.
  * Author: Zibo Men
- * Version: 1.2.0
+ * Version: 1.3.0
  *
  * @package           SM Dental Insurance
- * @author            Your Name
- * @copyright         2024 Your Name
+ * @author            Zibo Men
+ * @copyright         2024 Zibo Men
  */
 
 defined('ABSPATH') || exit;

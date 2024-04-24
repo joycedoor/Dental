@@ -31,8 +31,6 @@
     position: relative;
     width: 100%;
     overflow: visible;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
 }
 
 #crown-holder {
@@ -264,7 +262,7 @@ input[type="checkbox"]:checked {
 
 /* 选中状态下的对勾样式，使用伪元素 */
 input[type="checkbox"]:checked::before {
-    content: "✔";
+    content: "✓";
     color: white;
     position: absolute;
     left: 3px;
