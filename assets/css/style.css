@@ -1,8 +1,7 @@
 .steps-nav {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     color: #c4c4c4;
-    margin-bottom: 20px; /* 可以根据需要调整 */
 }
 .step {
     display: flex;
@@ -12,35 +11,34 @@
 }
 .step-label {
     font-family: Lato, sans-serif;
+    font-weight: bold;
     font-size: 16px;
-    line-height: 22.4px;
 }
 .step-bar {
     border-radius: 10px;
-    background-color: #d9d9d9;
-    margin-top: 8px;
+    background-color: #D9D9D9;
     height: 6px;
 }
 
 .active .step-label {
     color: #000;
-    font-weight: 700;
 }
 .active .step-bar {
-    background-color: rgba(255, 74, 74, 0.8);
+    background-color: #DE5F4C;
 }
 
 #app {
     position: relative;
-    padding: 20px 40px 20px 40px;
     width: 100%;
     overflow: visible;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 #crown-holder {
-    position: relative;  /* 新的定位上下文 */
-    height: 0;  /* 不占用额外空间 */
-    z-index: 10;  /* 确保在最前显示 */
+    position: relative;
+    height: 0;
+    z-index: 10;
 }
 
 .mask {
@@ -53,15 +51,15 @@
 
 .steps-wrapper {
     display: flex;
-    flex-direction: row; /* 确保步骤是横向排列的 */
-    transition: transform 0.5s ease-in-out; /* 平滑过渡效果 */
-    width: 100%; /* 假设有3个步骤，每个步骤占用100%的宽度 */
+    flex-direction: row;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .step-container {
     width: 100%; /* 每个步骤容器占据视图的100% */
-    display: flex; /* 使用flex布局 */
-    flex-direction: row; /* 子元素垂直排列 */
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 
     flex-shrink: 0; /* 防止缩小 */
@@ -98,12 +96,13 @@ input[type=checkbox] {
     background-color: rgba(217, 217, 217, 0.2);
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    gap: 15px;
+    margin-left: 2px;
+    margin-bottom: 72px;
     white-space: nowrap;
-    padding: 12px 13px;
     position: relative; /* 为了绝对定位内部的 label */
-    width: 100%;
+    width: 400px;
+    height: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .input-label:focus {
@@ -113,56 +112,64 @@ input[type=checkbox] {
 input::placeholder {
     color: #72787A;
     font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 22.4;
 }
 
 .input-label{
     font-family: 'Lato', sans-serif;
-    font-size: 16px; /* 示例字体大小 */
-    font-weight: 400; /* 示例字体权重 */
-    line-height: 1.5; /* 示例行高 */
-    border: none; /* 去除边框 */
-    background: none; /* 透明背景 */
-    width: 100%; /* 输入框宽度填满容器 */
+    font-size: 16px;
+    line-height: 22.4px;
+    border: none;
+    background: none;
     position: relative;
+    margin-left: 28px;
 }
 
-.input-label {
-
-}
-
-.input-area {
+.input-area-1 {
     flex: 1; /* 输入区域占据剩余空间 */
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
-    padding-top:20px;
+    padding-right: 0;
+    padding-top:119px;
+}
+
+.input-area-2 {
+    flex: 1; /* 输入区域占据剩余空间 */
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+    padding-top: 38px;
 }
 
 .bg-img {
-    width: 100%; /* 图片宽度充满容器 */
-    height: auto; /* 高度自适应，保持原有宽高比 */
-    object-fit: cover; /* 覆盖填充整个元素框 */
+    width: 360px; /* 图片宽度充满容器 */
+    height: 350px;
 }
 
 .right-bg-pic {
-    width: 40%; /* 图片占据40%的宽度 */
+    width: 45%; /* 图片占据40%的宽度 */
     height: auto; /* 高度自适应 */
-    padding-left: 20px; /* 与输入区域间隔20px */
     display:block;
 
 }
 
 .title {
-    margin-top: 40px;
-    font: 700 30px Lato, sans-serif;
-    margin-bottom: 10px;
+    margin-top: 72px;
+    font: 700 28px Lato, sans-serif;
+    margin-bottom: 0;
 }
 
 .img {
     aspect-ratio: 1;
-    object-fit: auto;
     object-position: center;
-    width: 36px;
+    width: 16px;
+    margin-left: 21px;
+}
+
+.img-down-arrow {
+    width: 30px;
+    object-position: center;
 }
 
 .pika-label {
@@ -170,7 +177,7 @@ input::placeholder {
 }
 
 .pika-table th {
-    color: #AD0000 !important; /* 红色 */
+    color: #AD0000 !important;
 }
 
 .pika-button.pika-day.is-today {
@@ -196,7 +203,7 @@ input::placeholder {
 
 .subtitle {
     font: 700 20px Lato, sans-serif;
-    line-height: 28px;
+    line-height: 35.2px;
     flex-grow: 1;
     flex-basis: auto;
     margin: auto 0;
@@ -204,23 +211,25 @@ input::placeholder {
 
 .subtitle-wrapper {
     display: flex;
-    margin-top: 10px;
-    gap: 25px;
+    gap: 4px;
     white-space: nowrap;
+    margin-bottom: 47px;
 }
 
 .scroll-container {
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
+    gap: 53px;
 }
 
 .service-selection {
-    margin-top: 10px;
     display: flex;
     flex-direction: column; /* 将方向设置为列，使得详情文本位于复选框和标签下方 */
     align-items: flex-start; /* 对齐到起始边，确保文本对齐 */
-    margin-left: 40px;
+    margin-left: 4px;
+    margin-bottom: 31px;
 }
 
 .checkbox-label-container {
@@ -228,43 +237,78 @@ input::placeholder {
     align-items: center; /* 垂直居中对齐复选框和标签 */
 }
 
+/* 基础样式 */
+input[type="checkbox"] {
+    -webkit-appearance: none; /* 移除默认的样式 */
+    -moz-appearance: none;
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 6px;
+    vertical-align: middle;
+    position: relative; /* 为伪元素定位准备 */
+    outline: none; /* 移除聚焦时的轮廓 */
+}
+
+/* 鼠标悬浮时的样式 */
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+/* 选中状态下的样式 */
+input[type="checkbox"]:checked {
+    background-color: #DE5F4C; /* 选中状态的背景颜色 */
+    border-color: #DE5F4C; /* 选中状态的边框颜色 */
+}
+
+/* 选中状态下的对勾样式，使用伪元素 */
+input[type="checkbox"]:checked::before {
+    content: "✔";
+    color: white;
+    position: absolute;
+    left: 3px;
+    top: -2px;
+    font-size: 12px;
+}
+
+
 .service-detail {
-    padding-left: 22px; /* 根据复选框的实际宽度调整，使详情文本与标签对齐 */
-    font-size: 14px; /* 字体大小调整，可根据需要更改 */
-    line-height: 19.6px;
+    margin-left: 41px;
+    font-size: 14px;
+    line-height: 16px;
     font-family: 'Lato', sans-serif;
+    color: #72787A;
 }
 
 .service-name {
     font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25.2px;
-    margin: 0 0 0 0;
+    font-size: 16px;
+    line-height: 22.4px;
+    margin:0 0 0 18px;
 }
 
 /* 容器和卡片的基本布局 */
 .dental-plan-card {
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 8px; /* 四个角有弧度 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微的阴影效果 */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
     position: relative;
 }
 
 /* 第一张卡片的特殊样式 */
 .first-card {
-    background-color: rgba(255, 74, 74, 0.8); /* 背景颜色 */
-    color: white; /* 字体颜色 */
+    background-color: #DE5F4C;
+    color: white;
 }
 
 /* 除第一张外的卡片样式 */
 .dental-plan-card:not(.first-card) {
-    background-color: white; /* 背景颜色 */
-    color: #333333; /* 字体颜色 */
-    border: 2px solid #ff4a4a; /* 设置边框为红色 */
+    background-color: white;
+    color: #333333;
+    border: 3px solid #DE5F4C;
 }
 
 /* 卡片详情和内容布局 */
@@ -292,24 +336,28 @@ input::placeholder {
 .dental-plan-title {
     font-size: 24px;
     line-height: 26.4px;
+    font-weight: 700;
 }
 
 .dental-plan-subtitle {
     font-size: 20px;
     line-height: 22px;
+    font-weight: 600;
 }
 
 .check-icon{
-    width: 20.4px;
-    height: 20.4px;
+    width: 24px;
+    height: 24px;
 }
 
 .first-card .check-icon circle {
-    stroke: white;
+    fill: white;
 }
 
 .first-card .check-icon path {
-    fill: white;
+    fill: #DE5F4C;
+    stroke: #DE5F4C;
+    stroke-width : 2px;
 }
 
 /* 第一张卡片标题为白色 */
@@ -320,15 +368,24 @@ input::placeholder {
 /* 非第一张卡片标题为红色 */
 .dental-plan-card:not(.first-card) .dental-plan-title,
 .dental-plan-card:not(.first-card) .dental-plan-subtitle {
-    color: #ff4a4a; /* 非第一张卡片的标题颜色为红色 */
+    color: #DE5F4C; /* 非第一张卡片的标题颜色为红色 */
+}
+
+.dental-plan-features {
+    margin-top: 28px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* 特征列表的布局 */
 .dental-plan-feature {
     display: flex;
     align-items: center;
-    margin-bottom: 3px; /* 特征间的行间距更小 */
-    gap:5px;
+    margin-bottom: 3px;
+    gap:8px;
 }
 
 .dental-plan-feature-text {
@@ -341,11 +398,13 @@ input::placeholder {
 /* 价格和按钮的布局 */
 .dental-plan-pricing {
     display: flex;
+    font-size: 16px;
     align-items: baseline;
 }
 
 .dental-plan-price {
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: 700;
     margin: 0 5px;
 }
 
@@ -355,22 +414,50 @@ input::placeholder {
     align-items: center;
     padding:0 0 0 0;
     background: transparent;
+    margin-top:15px;
+}
+
+.dental-plan-effective-date{
+    font-size: 16px;
+    line-height: 22.4px;
+    margin: 0;
 }
 
 .dental-plan-cta {
     text-align: right;
 }
 
-.dental-plan-enroll-button {
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.dental-plan-enroll-button{
     padding: 10px 20px;
-    background-color: white; /* 按钮颜色 */
+    background-color: white;
     color: #333333;
-    border: 2px solid #ff4a4a;
+    border: 2px solid #DE5F4C;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: auto; /* 左边距自动，使其靠右对齐 */
-    margin-right: 0; /* 右边距为0 */
     width: 321px;
+}
+
+.dental-plan-enroll-button {
+    margin-right: 0;
+}
+
+.dental-plan-PN-link {
+    text-decoration: underline !important;
+    font-size: 16px;
+    margin-left: 0;
+    color: #DE5F4C;
+    cursor: pointer;
+
+}
+.first-card .dental-plan-PN-link {
+    color: white;
 }
 
 /* 皇冠图标样式 */
@@ -387,10 +474,10 @@ input::placeholder {
 
 .error-popup {
     display: flex;
-    align-items: center; /* 确保垂直居中对齐 */
-    justify-content: flex-start; /* 内容靠左对齐 */
-    position: fixed;
-    top: 20%;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 50px;
     left: 50%;
     transform: translate(-50%, -20%);
     width: 453px;
@@ -402,6 +489,11 @@ input::placeholder {
 }
 
 .error-icon {
-    margin-right: 10px; /* 图标和文本之间的间距 */
-    flex-shrink: 0; /* 防止图标在容器缩小时被压缩 */
+    margin-right: 10px;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.step2contact {
+    margin-top: 30px;
 }

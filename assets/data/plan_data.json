@@ -9,7 +9,13 @@
       "No waiting period & up to 60% benefit for Basic & Major Procedures",
       "Delta Dental PPO Network"
     ],
-    "Price": "$45.48"
+    "TraitsCN": [
+      "推荐有补牙、牙冠、拔牙与根管需求的就诊人选择",
+      "对于 Basic & Major Procedure 无等待期，最高可赔付 60%",
+      "Delta Dental PPO 优质牙科医疗网络"
+    ],
+    "Price": "$45.48",
+    "PNLink": "https://www1.deltadentalins.com/find-a-dentist-members.html"
   },
   {
     "ID": "MWG2",
@@ -21,19 +27,31 @@
       "No waiting period & up to 60% benefit for Basic Procedures",
       "Delta Dental PPO Network"
     ],
-    "Price": "$35.88"
+    "TraitsCN": [
+      "推荐有洗牙、补牙需求的就诊人选择",
+      "对于 Basic Procedure 无等待期，最高可赔付 60%",
+      "Delta Dental PPO 优质牙科医疗网络"
+    ],
+    "Price": "$35.88",
+    "PNLink": "https://www1.deltadentalins.com/find-a-dentist-members.html"
   },
   {
     "ID": "MWG3",
-    "PlanProvider": "BrightSmile",
-    "PlanCategory": "BrightSmile - No Waiting Period",
-    "PlanName": "Premium / Enhanced",
+    "PlanProvider": "Renaissance",
+    "PlanCategory": "Renaissance - No Waiting Period",
+    "PlanName": "Max Choice / Max Choice Plus",
     "Traits": [
       "For those with needs for fillings, crowns, oral surgery, and root canal",
       "No waiting period & up to 40% benefit for Basic & Major Procedures",
-      "Maximum Care PPO network"
+      "Renaissance PPO network"
     ],
-    "Price": "$42.29"
+    "TraitsCN": [
+      "推荐有补牙、牙冠、拔牙与根管需求的就诊人选择",
+      "对于 Basic & Major Procedure 无等待期，最高可赔付 40%",
+      "Renaissance PPO 牙科医疗网络"
+    ],
+    "Price": "$42.29",
+    "PNLink": "https://www.myrenproviders.com/provider-search/home"
   },
   {
     "ID": "DELTA1",
@@ -45,7 +63,13 @@
       "Flexible effective date",
       "Delta Dental PPO Network"
     ],
-    "Price": "$24.24"
+    "TraitsCN": [
+      "推荐有洗牙、牙片需求的就诊人选择，赔付高达 100%",
+      "月初/月中均可生效",
+      "Delta Dental PPO 优质牙科医疗网络"
+    ],
+    "Price": "$24.24",
+    "PNLink": "https://www1.deltadentalins.com/find-a-dentist-members.html"
   },
   {
     "ID": "UHC1",
@@ -57,7 +81,13 @@
       "Effective as early as the next day & no waiting period",
       "United Healthcare National Options PPO 30 Network"
     ],
-    "Price": "$26.66"
+    "TraitsCN": [
+      "推荐有补牙、牙冠、拔牙与根管需求的就诊人选择",
+      "最早次日开始生效，投保更灵活",
+      "UHC National Options PPO 30 医疗网络"
+    ],
+    "Price": "$26.66",
+    "PNLink": "http://www.yourdentalplan.com/dentistsearch"
   },
   {
     "ID": "UHC2",
@@ -69,6 +99,12 @@
       "100% coverage for preventive procedures",
       "United Healthcare National Options PPO 30 Network"
     ],
-    "Price": "$19.22"
+    "TraitsCN": [
+      "推荐有洗牙、牙片需求的就诊人选择，赔付高达 100%",
+      "最早次日开始生效，投保更灵活",
+      "UHC National Options PPO 30 医疗网络"
+    ],
+    "Price": "$19.22",
+    "PNLink": "http://www.yourdentalplan.com/dentistsearch"
   }
 ]

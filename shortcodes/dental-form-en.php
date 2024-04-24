@@ -3,15 +3,36 @@
     <error-popup :message="errorMessage" :visible="errorVisible"></error-popup>
     <div class="steps-nav">
         <div class="step" :class="{ 'active': currentStep === 1 }">
-            <div class="step-label">①  Member Info</div>
+            <div class="step-label">
+                <div>
+                    ① 
+                </div>
+                <div>
+                    Member Info
+                </div>
+            </div>
             <div class="step-bar"></div>
         </div>
         <div class="step" :class="{ 'active': currentStep === 2 }">
-            <div class="step-label">②  Dental Services</div>
+            <div class="step-label">
+                <div>
+                    ② 
+                </div>
+                <div>
+                    Dental Services
+                </div>
+            </div>
             <div class="step-bar"></div>
         </div>
         <div class="step" :class="{ 'active': currentStep === 3 }">
-            <div class="step-label">③  Select Plans</div>
+            <div class="step-label">
+                <div>
+                    ③ 
+                </div>
+                <div>
+                    Select Plans
+                </div>
+            </div>
             <div class="step-bar"></div>
         </div>
     </div>
@@ -21,7 +42,7 @@
         <div class="steps-wrapper">
             <!-- 第一步 -->
             <div class="step-container">
-                <div class="input-area">
+                <div class="input-area-1">
                     <div class="input-box">
                         <img
                                 loading="lazy"
@@ -35,7 +56,7 @@
                         <img
                                 loading="lazy"
                                 src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/calender.svg'; ?>"
-                                class="calender-icon"
+                                class="img"
                         />
                         <input type="text" id="birthday" v-model="birthday" readonly placeholder="Enter Your Date of Birth" class="input-label">
 
@@ -44,7 +65,7 @@
                 <div class="right-bg-pic">
                     <img
                             loading="lazy"
-                            src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/bg2.svg'; ?>"
+                            src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/bg1.png'; ?>"
                             class="bg-img"
                     />
                 </div>
@@ -52,12 +73,12 @@
 
             <!-- 第二步 -->
             <div class="step-container">
-                <div class="input-area">
+                <div class="input-area-2">
                     <div class="subtitle-wrapper">
                         <img
                                 loading="lazy"
                                 src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/downarrow.svg'; ?>"
-                                class="img"
+                                class="img-down-arrow"
                         />
                         <div class="subtitle">
                             Please select dental services you intend to receive
@@ -70,12 +91,14 @@
                         </div>
                         <span class="service-detail">{{ service.detail }}</span>
                     </div>
-
+                    <div class="step2contact">
+                        <p style="font-family: 'Lato', sans-serif; font-size: 16px; line-height: 22.4px"> Not sure about your dental procedures? <a href="https://smcovered.com/support/contact-us/" target="_blank" style="font-weight: bold; text-decoration: underline;">Contact us</a> </p>
+                    </div>
                 </div>
                 <div class="right-bg-pic">
                     <img
                             loading="lazy"
-                            src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/bg1.svg'; ?>"
+                            src="<?php echo SM_DENTAL_INSURANCE_ASSETS_DIR . 'img/bg2.png'; ?>"
                             class="bg-img"
                     />
                 </div>
@@ -97,8 +120,8 @@
                             <section class="dental-plan-features">
                                 <div class="dental-plan-feature" v-for="trait in plan.Traits" :key="trait">
                                     <svg viewBox="-1 -1 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" class="check-icon">
-                                        <circle cx="16" cy="16" r="15" fill="none" stroke="#ff4a4a" stroke-width="2"/>
-                                        <path d="M13.0159 19.6362L9.1052 15.7255L7.7782 17.0525L13.0159 22.2902L24.2696 11.0365L22.9426 9.70947L13.0159 19.6362Z" fill="#ff4a4a"/>
+                                        <circle cx="16" cy="16" r="15" fill="black" stroke="none"/>
+                                        <path d="M13.0159 19.6362L9.1052 15.7255L7.7782 17.0525L13.0159 22.2902L24.2696 11.0365L22.9426 9.70947L13.0159 19.6362Z" fill="white" stroke="white" stroke-width="2px"/>
                                     </svg>
                                     <p class="dental-plan-feature-text">{{ trait }}</p>
                                 </div>
@@ -113,8 +136,22 @@
                                     <p class="dental-plan-effective-date">Earliest Coverage Effective Date: {{ plan.earliestEffectiveDate }}</p>
                                 </div>
                             </footer>
-                            <button class="dental-plan-enroll-button" @click="goToPlanUrl(plan)">Enroll Now > &gt;</button>
+                            <div class="buttons-container">
+                                <a href="#" class="dental-plan-PN-link" @click="goToPNUrl(plan)">Search for in-network dentists ></a>
+                                <button class="dental-plan-enroll-button" @click="goToPlanUrl(plan)">Enroll Now > &gt;</button>
+                            </div>
                         </div>
+                    </div>
+                    <div class="disclaimer">
+                        <p style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px">
+                            * The insurance provider will charge an one-time enrollment fee for new enrollments
+                        </p>
+                        <p style="font-family: 'Lato', sans-serif; font-size: 14px; line-height: 19.6px">
+                            ** Limitations, exclusions, annual deductibles, copayments and maximums apply. For a complete description of benefits, please refer to the dental insurance policy.
+                        </p>
+                    </div>
+                    <div class="step2contact" style="margin-top: 0px">
+                        <p style="font-family: 'Lato', sans-serif; font-size: 18px; line-height: 25.2px"> Not sure about your dental procedures? <a href="https://smcovered.com/support/contact-us/" target="_blank" style="font-weight: bold; text-decoration: underline;">Contact us</a> </p>
                     </div>
                 </div>
             </div>
@@ -123,5 +160,5 @@
     <button v-if="currentStep === 2" class="previous-step" type="button" @click="goToNextStep(-1)">Previous</button>
     <button v-if="currentStep === 1" class="next-step" type="button" @click="goToNextStep(1)">Next</button>
     <button v-if="currentStep === 2" class="next-step" type="button" @click="fetchPlans">Submit</button>
-    <button v-if="currentStep === 3" class="previous-step" type="button" @click="refreshPage">Return</button>
+    <button v-if="currentStep === 3" class="previous-step" type="button" @click="goBackStep2">Return</button>
 </div>

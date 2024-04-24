@@ -22,10 +22,10 @@
     },
     {
         "State": "IL",
-        "Plans": "MWG1, UHC1, MWG2",
-        "D3_Selected_Highlight": "MWG1",
-        "D2_Selected_Highlight": "MWG1",
-        "D1_Selected_Highlight": "UHC1"
+        "Plans": "UHC1, MWG3, UHC2",
+        "D3_Selected_Highlight": "UHC1",
+        "D2_Selected_Highlight": "UHC2",
+        "D1_Selected_Highlight": "UHC2"
     },
     {
         "State": "VA",

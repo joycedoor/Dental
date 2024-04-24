@@ -36,14 +36,18 @@ new Vue({
     },
     methods: {
         initDatePicker() {
+            const today = new Date();
             const eighteenYearsAgo = new Date();
             eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+            const oneHundredYearsAgo = today.getFullYear() - 100;
+            const oneYearAgo = today.getFullYear() - 1;
 
             this.pikaday = new Pikaday({
                 field: document.getElementById('birthday'),
                 format: 'YYYY-MM-DD',
                 defaultDate: eighteenYearsAgo,
                 setDefaultDate: false,
+                yearRange: [oneHundredYearsAgo, oneYearAgo],
                 i18n: {
                     previousMonth: 'Previous Month',
                     nextMonth: 'Next Month',
@@ -62,10 +66,16 @@ new Vue({
             setTimeout(() => {
                 this.errorVisible = false;
             }, 5000);
-
+        },
+        goToPNUrl(plan) {
+            const PNurl = plan.PNLink;
+            if (PNurl) {
+                window.open(PNurl, '_blank').focus(); // 如果 URL 存在，则打开链接
+            } else {
+                console.error('No URL found for plan');
+            }
         },
         goToPlanUrl(plan) {
-
             fetch(smDentalData.ajaxurl, {
                 method: 'POST',
                 headers: {
@@ -134,9 +144,7 @@ new Vue({
                                     throw new Error('No Plans Available');
                                 }
                                 this.availablePlans = filter.Plans.split(',').map(plan => plan.trim());
-                                console.log(this.availablePlans);
                                 this.filter = filter;
-                                console.log(this.filter);
                             });
                     } else {
                         throw new Error('Invalid Zip Code');
@@ -184,6 +192,7 @@ new Vue({
             wrapper.style.transform = `translateX(${this.translateXValue})`;
         },
         calculateEffectiveDate(planProvider) {
+            planProvider = planProvider.replace(/[0-9]/g, '');
             const now = new Date();
             const day = now.getDate();
             let effectiveDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -283,8 +292,27 @@ new Vue({
                 this.selectedServices.push(serviceId);
             }
         },
-        refreshPage() {
-            window.location.reload();
+        goBackStep2() {
+            this.plans = [];
+            this.currentStep = 2;
+            this.errorMessage = '';
+
+            // 使用 setTimeout 来延迟执行
+            setTimeout(() => {
+                // 修改mask容器的overflow属性
+                const maskContainer = this.$el.querySelector('.mask');
+                if (maskContainer) {
+                    maskContainer.style.overflow = 'hidden';
+                }
+
+                const stepsWrapper = this.$el.querySelector('.steps-wrapper');
+                if (stepsWrapper) {
+                    const children = stepsWrapper.children;
+                    for (let i = 0; i < children.length - 1; i++) {
+                        children[i].style.visibility = 'visible';
+                    }
+                }
+            }, 500);
         },
     },
     computed: {
